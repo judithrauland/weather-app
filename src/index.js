@@ -41,8 +41,6 @@ function formatSun(timestamp) {
 
 // API Integration
 function displayData(response) {
-  console.log(response);
-
   let temperatureELement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -53,6 +51,7 @@ function displayData(response) {
   let dateElement = document.querySelector("#date");
   let sunriseElement = document.querySelector("#sunrise");
   let sunsetElement = document.querySelector("#sunset");
+  let iconElement = document.querySelector("#icon");
 
   temperatureELement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
@@ -64,9 +63,15 @@ function displayData(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   sunriseElement.innerHTML = formatSun(response.data.sys.sunrise * 1000);
   sunsetElement.innerHTML = formatSun(response.data.sys.sunset * 1000);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 let apiKey = "da4354ccc4b5c937168c50391a787c99";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Cologne&appid=${apiKey}&units=metric`;
+let city = "Cologne";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayData);
