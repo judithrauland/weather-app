@@ -2,6 +2,6 @@
   text-align: center;
 }
 
-li#description {
+li#description:first-letter {
   text-transform: capitalize;
 }

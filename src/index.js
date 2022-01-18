@@ -1,27 +1,28 @@
 // Current date and time
-let now = new Date();
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
-let hour = now.getHours();
-if (hour < 10) {
-  hour = `0${hour}`;
-}
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
-let datetime = document.querySelector("li.datetime");
-datetime.innerHTML = `${day} ${hour}:${minutes}`;
+  let day = days[now.getDay()];
+  return `${day} ${hours}:${minutes}`;
+}
 
 // API Integration
 function displayData(response) {
@@ -34,6 +35,7 @@ function displayData(response) {
   let windElement = document.querySelector("#wind");
   let minimumElement = document.querySelector("#minimum");
   let maximumElement = document.querySelector("#maximum");
+  let dateElement = document.querySelector("#date");
 
   temperatureELement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
@@ -42,6 +44,7 @@ function displayData(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
   minimumElement.innerHTML = Math.round(response.data.main.temp_min);
   maximumElement.innerHTML = Math.round(response.data.main.temp_max);
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 let apiKey = "da4354ccc4b5c937168c50391a787c99";
