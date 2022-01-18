@@ -70,8 +70,19 @@ function displayData(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-let apiKey = "da4354ccc4b5c937168c50391a787c99";
-let city = "Cologne";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+function search(city) {
+  let apiKey = "da4354ccc4b5c937168c50391a787c99";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayData);
+}
 
-axios.get(apiUrl).then(displayData);
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+search("Cologne");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
