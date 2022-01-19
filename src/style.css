@@ -1,9 +1,26 @@
-.footer {
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #d7e1ee;
+  border-radius: 10px;
+}
+
+.main-temperature {
   text-align: center;
 }
 
-li#description:first-letter {
-  text-transform: capitalize;
+#temperature {
+  font-size: 34px;
+  text-align: center;
+}
+
+.weather-icon {
+  text-align: center;
 }
 
 .summary .active {
@@ -14,4 +31,13 @@ li#description:first-letter {
 
 .summary .active:hover {
   text-decoration: none;
+}
+
+li#description:first-letter {
+  text-transform: capitalize;
+}
+
+.footer {
+  text-align: center;
+  margin: -50px;
 }
