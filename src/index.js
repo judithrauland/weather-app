@@ -70,6 +70,7 @@ function displayData(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
+// Search Engine
 function search(city) {
   let apiKey = "da4354ccc4b5c937168c50391a787c99";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
