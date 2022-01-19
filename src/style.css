@@ -5,3 +5,13 @@
 li#description:first-letter {
   text-transform: capitalize;
 }
+
+.summary .active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+
+.summary .active:hover {
+  text-decoration: none;
+}

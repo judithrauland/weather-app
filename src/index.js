@@ -53,6 +53,8 @@ function displayData(response) {
   let sunsetElement = document.querySelector("#sunset");
   let iconElement = document.querySelector("#icon");
 
+  celsiusTemperature = response.data.main.temp;
+
   temperatureELement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -69,6 +71,31 @@ function displayData(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+
+// Convert from Celsius to Fahrenheit
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = Math.round(celsiusTemperature * (9 / 5) + 32);
+  temperatureElement.innerHTML = fahrenheitTemperature;
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 // Search Engine
 function search(city) {
