@@ -37,6 +37,25 @@ li#description:first-letter {
   text-transform: capitalize;
 }
 
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+  color: black;
+}
+
+.weather-forecast-date {
+  font-size: 18px;
+  opacity: 0.5;
+}
+
+.weather-forecast-temperature {
+  font-size: 16px;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.5;
+}
+
 .footer {
   text-align: center;
   margin: -50px;
