@@ -25,7 +25,8 @@ function formatDate(timestamp) {
 }
 
 // Forecast
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
@@ -68,6 +69,14 @@ function formatSun(timestamp) {
   return `${hours}:${minutes}`;
 }
 
+// Coordinates of Forecast City
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "da4354ccc4b5c937168c50391a787c99";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 // API Integration
 function displayData(response) {
   let temperatureELement = document.querySelector("#temperature");
@@ -99,6 +108,8 @@ function displayData(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 // Convert from Celsius to Fahrenheit
@@ -139,8 +150,7 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-search("Cologne");
-displayForecast();
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+search("Cologne");
