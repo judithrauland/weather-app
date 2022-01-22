@@ -23,16 +23,6 @@ body {
   text-align: center;
 }
 
-.summary .active {
-  color: black;
-  cursor: default;
-  text-decoration: none;
-}
-
-.summary .active:hover {
-  text-decoration: none;
-}
-
 li#description:first-letter {
   text-transform: capitalize;
 }
