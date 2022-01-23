@@ -23,8 +23,22 @@ body {
   text-align: center;
 }
 
-li#description:first-letter {
+.temperatures {
+  margin-top: 35px;
+  margin-left: 20px;
+}
+
+.description-button {
+  margin-top: 35px;
+  margin-left: 20px;
+}
+
+span#description:first-letter {
   text-transform: capitalize;
+}
+
+.weather-details {
+  margin-top: 35px;
 }
 
 .weather-forecast {
