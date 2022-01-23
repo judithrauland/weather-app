@@ -125,7 +125,22 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
+function searchLocation(position) {
+  let apiKey = "da4354ccc4b5c937168c50391a787c99";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayData);
+}
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
 let form = document.querySelector("#search-form");
+let currentButton = document.querySelector("#current-location");
+
 form.addEventListener("submit", handleSubmit);
+currentButton.addEventListener("click", getCurrentLocation);
 
 search("Cologne");
