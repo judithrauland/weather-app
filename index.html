@@ -55,9 +55,9 @@
             <div class="summary">
               <div id="date"></div>
               <div class="main-temperature">
-                <span id="temperature"></span> °C
+                <span id="temperature"></span><span id="celsius"> °C</span>
               </div>
-              <div class="temperatures">
+              <div class="min-max-temperatures">
                 <div class="minimum-temperature">
                   <i class="fas fa-temperature-low"></i>
                   <span id="minimum"></span> °C
@@ -84,9 +84,12 @@
           <div class="col">
             <div class="weather-details">
               <div class="humidity">
-                Humidity: <span id="humidity"></span> %
+                <span id="humidity-text"> Humidity: </span
+                ><span id="humidity"></span> %
               </div>
-              <div class="wind">Wind: <span id="wind"></span> km/h</div>
+              <div class="wind">
+                <span id="wind-text">Wind: </span><span id="wind"></span> km/h
+              </div>
             </div>
           </div>
         </div>

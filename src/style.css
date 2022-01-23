@@ -10,27 +10,47 @@ body {
   border-radius: 10px;
 }
 
+#date {
+  opacity: 0.5;
+  margin-left: 2px;
+}
+
 .main-temperature {
   text-align: center;
+  margin-top: 15px;
 }
 
 #temperature {
-  font-size: 34px;
+  font-size: 40px;
+  font-weight: 300;
+}
+
+#celsius {
+  font-size: 20px;
+  position: relative;
+  top: -15px;
+}
+
+.min-max-temperatures {
   text-align: center;
+  margin-top: 5px;
 }
 
 .weather-icon {
   text-align: center;
 }
 
-.temperatures {
-  margin-top: 35px;
-  margin-left: 20px;
+#icon {
+  margin-top: 20px;
+  height: 120px;
+  width: 120px;
 }
 
 .description-button {
-  margin-top: 35px;
-  margin-left: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 span#description:first-letter {
@@ -38,7 +58,15 @@ span#description:first-letter {
 }
 
 .weather-details {
-  margin-top: 35px;
+  margin-top: 50px;
+}
+
+span#wind-text {
+  opacity: 0.5;
+}
+
+span#humidity-text {
+  opacity: 0.5;
 }
 
 .weather-forecast {
